@@ -1,0 +1,123 @@
+---
+title: "rspm_demo"
+author: "Jeremy Allen"
+date: '2022-04-20'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Install Package
+
+```{r}
+
+install.packages("ggplot2")
+packageVersion("ggplot2")
+
+```
+
+## Where did it come from?
+
+```{r}
+
+getOption("repos")
+
+```
+
+## How fast are binaries?
+
+```{r}
+
+# install compile from source
+
+options(repos = c(REPO_NAME = "https://colorado.rstudio.com/rspm/cran/latest"))
+
+system.time(
+utils::install.packages("dplyr", repos = "https://colorado.rstudio.com/rspm/cran/latest")
+)
+
+```
+
+```{r}
+
+# install binary
+
+options(repos = c(REPO_NAME = "https://colorado.rstudio.com/rspm/cran/__linux__/focal/latest"))
+
+system.time(
+utils::install.packages("dplyr", repos = "https://colorado.rstudio.com/rspm/cran/__linux__/focal/latest")
+)
+
+```
+
+## Time Travel
+
+Install dplyr as if back in March 2021
+
+```{r}
+
+# set repo
+options(repos = c(REPO_NAME = "https://colorado.rstudio.com/rspm/cran/__linux__/focal/2021-03-31"))
+
+#install
+utils::install.packages("dplyr")
+
+packageVersion("dplyr")
+```
+
+Install dplyr as of March 2022
+
+```{r}
+
+# set repo
+options(repos = c(REPO_NAME = "https://colorado.rstudio.com/rspm/cran/__linux__/focal/2022-03-31"))
+
+#install
+utils::install.packages("dplyr")
+
+packageVersion("dplyr")
+
+```
+
+## Install from a curated and frozen repo
+
+```{r}
+
+# set repo
+options(repos = c(REPO_NAME = "https://colorado.rstudio.com/rspm/curated/__linux__/focal/2020-05-30+ODozNTY4O0M5RkRBMTgz"))
+
+#install
+utils::install.packages("dplyr")
+
+packageVersion("dplyr")
+
+
+```
+
+## Install with renv
+
+restart R session first
+
+```{r}
+
+#install
+install.packages("dplyr")
+
+packageVersion("dplyr")
+
+```
+
+## Install from Bioconductor
+
+```{r}
+
+# install BiocManager
+install.packages("BiocManager")
+
+# install Biobase
+BiocManager::install("Biobase", force = TRUE)
+
+
+```
