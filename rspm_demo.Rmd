@@ -9,6 +9,67 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Package Management in R
+
+## Install your first package
+
+```{r}
+
+install.packages("pins")
+
+```
+
+Check the version of pins
+
+```{r}
+
+packageVersion("pins")
+
+```
+
+Load and use the pins package
+
+```{r}
+
+# load the package from the library
+library(pins)
+
+# pin some data to RStudio Connect so others can use it
+board <- board_rsconnect(server = "colorado.rstudio.com")
+pin_write(board = board, mtcars, name = "mtcars_dataframe")
+
+```
+
+Now that data frame lives on RStudio Connect so others can use the pins package to find it and use it without having to email CSV files around!
+
+## Understanding your package environment
+
+### Repositories
+
+The big hardware store is the place where sets of tools are organized and distributed. Your repos might be different than mine! See Tools -\> Global Options to chose another repo.
+
+```{r}
+
+getOption("repos")
+
+```
+
+### Libraries
+
+The workshop of tools in your garage contains the sets of tools you bought from the big hardware store.
+
+-   R libraries are tied to R versions
+
+-   Three types of libraries: System, User, Project
+
+```{r}
+
+.libPaths()
+
+```
+
+# RStudio Package Manager Demo
+
 ## Install Package
 
 ```{r}
